@@ -9,11 +9,11 @@ folders = [
     "strategy-and-campaigns/campaign-building",
     "strategy-and-campaigns/email-retention",
     "strategy-and-campaigns/c-level-reporting",
-    # Measurement & Tracking (Focus: Coursera)
+    # Measurement & Tracking
     "measurement-and-tracking/measurement-plan",
     "measurement-and-tracking/gtm-containers",
     "measurement-and-tracking/app-script",
-    # Data Analytics (Focus: GA4 Obfuscated, BigQuery, Synthetic CRM & Ads)
+    # Data Analytics
     "data-analytics/bigquery",
     "data-analytics/google-sheets",
     "data-analytics/python/data/raw",
@@ -22,15 +22,12 @@ folders = [
     "data-analytics/python/scripts",
 ]
 
-# ساخت پوشه‌ها
+# ساخت پوشه‌ها و اضافه کردن فایل .gitkeep جهت شناسایی توسط گیت
 for folder in folders:
     os.makedirs(folder, exist_ok=True)
-
-# ساخت ۳ فایل اصلی پایه
-base_files = ["README.md", ".gitignore", "requirements.txt"]
-for file_name in base_files:
-    if not os.path.exists(file_name):
-        with open(file_name, "w", encoding="utf-8") as f:
+    gitkeep_path = os.path.join(folder, ".gitkeep")
+    if not os.path.exists(gitkeep_path):
+        with open(gitkeep_path, "w", encoding="utf-8") as f:
             f.write("")
 
-print("ساختار تمیز و نهایی ریپازیتوری ایجاد شد.")
+print("پوشه‌ها همراه با فایل‌های .gitkeep ساخته شدند.")
